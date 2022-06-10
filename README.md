@@ -65,10 +65,12 @@ Graph representation of function F1:
 ![alt text](example_results/F1/graph0_y1.png "Graph example")  
 
 ## Dependencies:
-- python>=3.5
-- tensorflow>=1.7
+- python>=3.5 (also 3.9)
+- tensorflow>=1.7 (also 2.9)
+- tf_slim 
 - graphviz (including binaries)
 - latex
+- dvipng
 
 ## Notes
 

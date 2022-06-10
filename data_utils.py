@@ -17,7 +17,9 @@ from ast import literal_eval
 from sys import argv
 
 import numpy as np
-import tensorflow as tf
+# import tensorflow as tf
+import tensorflow.compat.v1 as tf
+tf.disable_v2_behavior()
 
 from utils import to_float32, number_of_positional_arguments
 

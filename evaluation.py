@@ -14,10 +14,15 @@ from os import path
 
 import numpy as np
 import sympy
-import tensorflow as tf
+
+# import tensorflow as tf
+import tensorflow.compat.v1 as tf
+tf.disable_v2_behavior()
+
 from graphviz import Source
 from sympy.printing.dot import dotprint
 from tensorflow.python.training.session_run_hook import SessionRunHook
+
 
 from timeout import time_limit, TimeoutException
 from utils import generate_arguments, yield_with_repeats, weight_name_for_i

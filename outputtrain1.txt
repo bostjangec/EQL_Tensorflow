@@ -1,0 +1,22 @@
+One train episode equals 50 normal epochs and 1 penalty epoch.
+Train episode: 1 out of 20.
+Train episode: 2 out of 20.
+Train episode: 3 out of 20.
+Train episode: 4 out of 20.
+Train episode: 5 out of 20.
+Train episode: 6 out of 20.
+Train episode: 7 out of 20.
+Train episode: 8 out of 20.
+Train episode: 9 out of 20.
+Train episode: 10 out of 20.
+Train episode: 11 out of 20.
+Train episode: 12 out of 20.
+Train episode: 13 out of 20.
+Train episode: 14 out of 20.
+Train episode: 15 out of 20.
+Train episode: 16 out of 20.
+Train episode: 17 out of 20.
+Train episode: 18 out of 20.
+Train episode: 19 out of 20.
+Train episode: 20 out of 20.
+Training complete. Evaluating...

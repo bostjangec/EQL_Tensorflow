@@ -7,7 +7,12 @@ from itertools import accumulate
 from os import path
 
 import numpy as np
-import tensorflow as tf
+# import tensorflow as tf
+import tensorflow.compat.v1 as tf
+tf.disable_v2_behavior()
+
+# import tensorflow as tf
+# import tensorflow.compat.v1.ConfigProto as ConfigProto
 
 # The following parameters should not be changed in most cases.
 network_parameters = {'train_val_split': .9,  # how data in train_val_file is split, .9 means 90% train 10% validation

@@ -3,7 +3,9 @@ import math
 import sys
 from collections import namedtuple
 
-import tensorflow as tf
+# import tensorflow as tf
+import tensorflow.compat.v1 as tf
+tf.disable_v2_behavior()
 
 import EQL_Layer_tf as eql
 from data_utils import get_input_fns, extract_metadata
@@ -100,6 +102,8 @@ def model_fn(features, labels, mode, params):
 
 
 if __name__ == '__main__':
+    # tf.logging.set_verbosity(tf.logging.WARNNING)
+    # tf.logging.set_verbosity(tf.logging.ERROR)
     tf.logging.set_verbosity(tf.logging.INFO)
     runtime_params = update_runtime_params(sys.argv, default_params)
     metadata = extract_metadata(runtime_params['train_val_file'], runtime_params['test_file'])
@@ -109,6 +113,7 @@ if __name__ == '__main__':
     logging_hook = tf.train.LoggingTensorHook(tensors={'train_accuracy': 'train_accuracy'}, every_n_iter=1000)
     evaluation_hook = set_evaluation_hook(**runtime_params)
     max_episode = get_max_episode(**runtime_params)
+    max_episode = 2
 
     train_input, penalty_train_input, val_input, test_input = get_input_fns(**runtime_params, **metadata)
     print('One train episode equals %d normal epochs and 1 penalty epoch.' % runtime_params['penalty_every'])
