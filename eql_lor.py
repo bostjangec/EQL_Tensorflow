@@ -4,12 +4,12 @@ import pickle
 import numpy as np
 
 # EQL data_util test:
-# from utils import to_float32, number_of_positional_arguments
-# filename = 'data/F1data_train_val'
-# filename = 'data/F1dataN_train_val'
-# data = to_float32(pickle.load(gzip.open(filename, "rb"), encoding='latin1'))
-# print(type(data))
-# # print(len(data))
+from utils import to_float32, number_of_positional_arguments
+filename = 'data/F1data_train_val'
+filename = 'data/F1dataN_train_val'
+dataE = to_float32(pickle.load(gzip.open(filename, "rb"), encoding='latin1'))
+print(type(dataE))
+# print(len(data))
 
 
 
@@ -24,7 +24,7 @@ data = generate_ODE_data(lorenz_stable, [1,1,1])
 x = data[:,1]
 dt = data[1][0]-data[0][0]
 dx =  np.gradient(x, dt)
-
+to_dump = (data, dx)
 
 # print(data[1])
 # print(data[0])
