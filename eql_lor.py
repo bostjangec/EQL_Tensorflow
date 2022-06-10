@@ -19,11 +19,11 @@ from ProGED.examples.DS2022.generate_data_ODE_systems import generate_ODE_data, 
 
 system = 'VDP'
 inits = [-0.2, -0.8]
-data = generate_ODE_data(lorenz_stable, [1,1,1])
+data = generate_ODE_data(lorenz_stable, [1,1,1])[:, 1:]
 
 x = data[:,1]
 dt = data[1][0]-data[0][0]
-dx =  np.gradient(x, dt)
+dx =  np.gradient(x, dt).reshape(-1, 1)
 to_dump = (data, dx)
 
 # print(data[1])
