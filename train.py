@@ -2,6 +2,7 @@
 import math
 import sys
 from collections import namedtuple
+import numpy as np
 
 # import tensorflow as tf
 import tensorflow.compat.v1 as tf
@@ -102,6 +103,7 @@ def model_fn(features, labels, mode, params):
 
 
 if __name__ == '__main__':
+    np.random.seed(0)
     tf.logging.set_verbosity(tf.logging.INFO)
     runtime_params = update_runtime_params(sys.argv, default_params)
     metadata = extract_metadata(runtime_params['train_val_file'], runtime_params['test_file'])
