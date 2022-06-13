@@ -9,10 +9,13 @@ Representations of EQL functions and layers.
     - *reg_div* implements the regularized division and reg_div.__call__ is used like a normal tf function in an EQL_fn.
 """
 import sympy as sp
-import tensorflow as tf
+# import tensorflow as tf
+import tensorflow.compat.v1 as tf
+tf.disable_v2_behavior()
 
 from utils import number_of_positional_arguments
 
+import tf_slim as slim
 
 class EQL_fn(object):
     """EQL_fn is a group of *self.repeats* identical nodes, e.g. 10 sine functions."""
@@ -127,7 +130,8 @@ class EQL_Layer(object):
     def get_matmul_output(self, data, l1_reg_sched, l0_threshold):
         """Method building the regularized matrix multiplication layer and returning the output for given data."""
         k_init = tf.random_uniform_initializer(minval=-self.w_init_scale, maxval=self.w_init_scale, seed=self.seed)
-        k_regu = tf.contrib.layers.l1_regularizer(scale=l1_reg_sched)
+        # k_regu = tf.contrib.layers.l1_regularizer(scale=l1_reg_sched)
+        k_regu = slim.l1_regularizer(scale=l1_reg_sched)
         layer = tf.layers.Dense(self.matmul_output_dim, kernel_initializer=k_init, kernel_regularizer=k_regu,
                                 bias_regularizer=k_regu)
         layer.build(data.get_shape())
